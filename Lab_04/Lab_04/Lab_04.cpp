@@ -24,6 +24,60 @@ int main()
 
     std::cout << "Before concatenation: str1 = " << str1 << ", str2 = " << str2 << std::endl;
     strcat(str1, str2);
+
+    // with malloc()
+    char* string1 = (char*)std::malloc(100);
+    char* string2 = (char*)std::malloc(100);
+
+    strcpy_s(string1, 100, "QWERTY");
+    strcpy_s(string2, 100, "0987654321");
+
+
+
+    std::cout << "Lenght_1: string1 = " << strlen1(string1) << ", string2 = " << strlen1(string2) << std::endl;
+    std::cout << "Lenght_2: string1 = " << strlen2(string1) << ", string2 = " << strlen2(string2) << std::endl;
+    std::cout << "Lenght_3: string1 = " << strlen3(string1) << ", string2 = " << strlen3(string2) << std::endl;
+
+    std::cout << "Before copy: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+    strcpy(string1, string2);
+    std::cout << "After copy: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+
+    std::cout << "Before compare: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+    strcmp(string1, string2);
+
+    std::cout << "Before concatenation: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+    strcat(string1, string2);
+
+    std::free(string1);
+    std::free(string2);
+
+    // with calloc()
+    string1 = (char*)std::calloc(7, sizeof(char*));
+    string2 = (char*)std::calloc(11, sizeof(char*));
+
+    strcpy_s(string1, 7, "QWERTY");
+    strcpy_s(string2, 11, "0987654321");
+
+    std::cout << "Lenght_1: string1 = " << strlen1(string1) << ", string2 = " << strlen1(string2) << std::endl;
+    std::cout << "Lenght_2: string1 = " << strlen2(string1) << ", string2 = " << strlen2(string2) << std::endl;
+    std::cout << "Lenght_3: string1 = " << strlen3(string1) << ", string2 = " << strlen3(string2) << std::endl;
+
+    std::cout << "Before copy: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+    strcpy(string1, string2);
+    std::cout << "After copy: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+
+    std::cout << "Before compare: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+    strcmp(string1, string2);
+
+    std::cout << "Before concatenation: string1 = " << string1 << ", string2 = " << string2 << std::endl;
+    strcat(string1, string2);
+
+    std::free(string1);
+    std::free(string2);
+
+    /*Разница между malloc и calloc заключается в том, что первая функция просто выделяет память и не инициализирует ее,
+    а вторая - выделяет память и инициализирует ее нулями. Таким образом в первом случае память может содержать "мусор", 
+    а во втором - вся память заполнена нулями.*/
 }
 
 int strlen1(char* str)
