@@ -32,8 +32,7 @@ public:
         Node* current = head;
         Node* prev = nullptr;
 
-        // —равниваем данные через оператор !=
-        if (!(current->data != key)) {  // Ёквивалентно current->data == key
+        if (!(current->data != key)) {
             head = current->next;
             if (tail == current) tail = nullptr;
             delete current;
